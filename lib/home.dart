@@ -112,7 +112,20 @@ class _HomeState extends State<Home> {
       barrierDismissible: true, // false
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       actions: [
+<<<<<<< Updated upstream
         // TextButton(onPressed: Get.to(다음경로), child: Text('Exit'))
+=======
+        TextButton(
+          onPressed: () {
+            String userId = userIdEditingController.text.trim();
+            userIdEditingController.text = "";
+            passwordEditingController.text = "";
+            Navigator.of(context).pop();
+            Get.to(() => Generation(), arguments: userId);
+          },
+          child: Text('OK'),
+        ),
+>>>>>>> Stashed changes
       ]
     );
   }
