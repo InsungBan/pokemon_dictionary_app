@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pokemon_dictionary_app/view/generation.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -112,9 +113,6 @@ class _HomeState extends State<Home> {
       barrierDismissible: true, // false
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       actions: [
-<<<<<<< Updated upstream
-        // TextButton(onPressed: Get.to(다음경로), child: Text('Exit'))
-=======
         TextButton(
           onPressed: () {
             String userId = userIdEditingController.text.trim();
@@ -125,7 +123,6 @@ class _HomeState extends State<Home> {
           },
           child: Text('OK'),
         ),
->>>>>>> Stashed changes
       ]
     );
   }
