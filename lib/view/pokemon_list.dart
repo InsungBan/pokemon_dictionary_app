@@ -5,7 +5,7 @@ import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 
 class PokemonList extends StatefulWidget {
   final List<GenerationList> list;
-  final List<PokemonClass> pokemonList;
+  final List<List> pokemonList;
   const PokemonList({super.key, required this.list, required this.pokemonList});
 
   @override
@@ -27,20 +27,20 @@ class _PokemonListState extends State<PokemonList> {
         toolbarHeight: 100,
       ),
       body: ListView.builder(
-        itemCount: widget.pokemonList.length,
+        itemCount: widget.pokemonList[keyIndex].length,
         itemBuilder: (context, index) {
           return Card(
             child: Row(
               children: [
                 Image.asset(
-                  widget.pokemonList[index].pokemonImage,
+                  widget.pokemonList[keyIndex][index].pokemonImage,
                   width: 100,
                 ),
                 SizedBox(
                   width: 30,
                 ),
                 Text(
-                  widget.pokemonList[index].pokemonName,
+                  widget.pokemonList[keyIndex][index].pokemonName,
                 ),
               ],
             ),

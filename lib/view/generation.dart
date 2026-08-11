@@ -14,7 +14,9 @@ class Generation extends StatefulWidget {
 class _GenerationState extends State<Generation> {
   // Property
   late List<GenerationList> generationList;
-  late List<PokemonClass> pokemonList;
+  late List<List> pokemonList;
+  late List<PokemonClass> firstGenList;
+  late List<PokemonClass> secondGenList;
   String userId = Get.arguments;
 
   @override
@@ -60,14 +62,26 @@ class _GenerationState extends State<Generation> {
     ];
 
     pokemonList=[
-      PokemonClass(
-        pokemonImage: 'images/fatcat.png', 
-        pokemonName: '귀요미 고양이',
-      ),
-      PokemonClass(
-        pokemonImage: 'images/fatcat2.png', 
-        pokemonName: '귀여운 뚱냥이',
-      ),
+      firstGenList=[
+        PokemonClass(
+          pokemonImage: 'images/fatcat.png', 
+          pokemonName: '귀요미 고양이',
+        ),
+        PokemonClass(
+          pokemonImage: 'images/fatcat2.png', 
+          pokemonName: '귀여운 뚱냥이',
+        ),
+      ],
+      secondGenList=[
+        PokemonClass(
+          pokemonImage: 'images/background.png', 
+          pokemonName: '귀요미 몬스터볼',
+        ),
+        PokemonClass(
+          pokemonImage: 'images/fatcat2.png', 
+          pokemonName: '귀여운 뚱냥이',
+        ),
+      ],
     ];
 
   }
