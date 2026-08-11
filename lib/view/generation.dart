@@ -103,42 +103,51 @@ class _GenerationState extends State<Generation> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: GridView.builder(
-          itemCount: generationList.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-          ), 
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Get.to(() => PokemonList(list: generationList, pokemonList: pokemonList,), arguments: index);
+        child: Stack(
+          children: [
+            Image.asset(
+              'images/background.png',
+              width: 1000,
+              fit: BoxFit.contain,
+            ),
+            GridView.builder(
+              itemCount: generationList.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              ), 
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Get.to(() => PokemonList(list: generationList, pokemonList: pokemonList,), arguments: index);
+                  },
+                  child: Card(
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadiusGeometry.circular(20),
+                          child: Image.asset(
+                            generationList[index].generationImage,
+                            width: 115,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          generationList[index].generationText,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
               },
-              child: Card(
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadiusGeometry.circular(20),
-                      child: Image.asset(
-                        generationList[index].generationImage,
-                        width: 115,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      generationList[index].generationText,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
+            ),
+          ],
         ),
       ),
     );
