@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
     Get.defaultDialog(
       title: '로그인 완료',
       middleText: '환영합니다 ${userIdEditingController.text.trim()}님!',
-      barrierDismissible: true, // false
+      barrierDismissible: false,
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       actions: [
         TextButton(
