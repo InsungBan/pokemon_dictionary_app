@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pokemon_dictionary_app/model/generation_list.dart';
-import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 
 class PokemonList extends StatefulWidget {
   final List<GenerationList> list;
@@ -29,20 +28,25 @@ class _PokemonListState extends State<PokemonList> {
       body: ListView.builder(
         itemCount: widget.pokemonList[keyIndex].length,
         itemBuilder: (context, index) {
-          return Card(
-            child: Row(
-              children: [
-                Image.asset(
-                  widget.pokemonList[keyIndex][index].pokemonImage,
-                  width: 100,
-                ),
-                SizedBox(
-                  width: 30,
-                ),
-                Text(
-                  widget.pokemonList[keyIndex][index].pokemonName,
-                ),
-              ],
+          return GestureDetector(
+            onTap: () {
+              //
+            },
+            child: Card(
+              child: Row(
+                children: [
+                  Image.asset(
+                    widget.pokemonList[keyIndex][index].pokemonImage,
+                    width: 100,
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  Text(
+                    widget.pokemonList[keyIndex][index].pokemonName,
+                  ),
+                ],
+              ),
             ),
           );
         },

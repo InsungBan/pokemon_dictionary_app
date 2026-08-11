@@ -17,6 +17,13 @@ class _GenerationState extends State<Generation> {
   late List<List> pokemonList;
   late List<PokemonClass> firstGenList;
   late List<PokemonClass> secondGenList;
+  late List<PokemonClass> thirdGenList;
+  late List<PokemonClass> fourthGenList;
+  late List<PokemonClass> fiveGenList;
+  late List<PokemonClass> sixGenList;
+  late List<PokemonClass> sevenGenList;
+  late List<PokemonClass> eightGenList;
+  late List<PokemonClass> nineGenList;
   String userId = Get.arguments;
 
   @override
@@ -64,22 +71,56 @@ class _GenerationState extends State<Generation> {
     pokemonList=[
       firstGenList=[
         PokemonClass(
-          pokemonImage: 'images/fatcat.png', 
-          pokemonName: '귀요미 고양이',
-        ),
-        PokemonClass(
-          pokemonImage: 'images/fatcat2.png', 
-          pokemonName: '귀여운 뚱냥이',
+          pokemonImage: 'images/f.jpg', 
+          pokemonName: '프리져',
         ),
       ],
       secondGenList=[
         PokemonClass(
-          pokemonImage: 'images/background.png', 
-          pokemonName: '귀요미 몬스터볼',
+          pokemonImage: 'images/a.jpg', 
+          pokemonName: '엔테이',
         ),
+      ],
+      thirdGenList=[
         PokemonClass(
-          pokemonImage: 'images/fatcat2.png', 
-          pokemonName: '귀여운 뚱냥이',
+          pokemonImage: 'images/l.jpg', 
+          pokemonName: '레쿠쟈',
+        ),
+      ],
+      fourthGenList=[
+        PokemonClass(
+          pokemonImage: 'images/pr.jpg', 
+          pokemonName: '펄기아',
+        ),
+      ],
+      fiveGenList=[
+        PokemonClass(
+          pokemonImage: 'images/ls.jpg', 
+          pokemonName: '레시라무',
+        ),
+      ],
+      sixGenList=[
+        PokemonClass(
+          pokemonImage: 'images/ev.jpg', 
+          pokemonName: '이벨타르',
+        ),
+      ],
+      sevenGenList=[
+        PokemonClass(
+          pokemonImage: 'images/sol.jpg', 
+          pokemonName: '솔가레오',
+        ),
+      ],
+      eightGenList=[
+        PokemonClass(
+          pokemonImage: 'images/in.jpg', 
+          pokemonName: '무한다이노',
+        ),
+      ],
+      nineGenList=[
+        PokemonClass(
+          pokemonImage: 'images/cash.jpg', 
+          pokemonName: '타부자고',
         ),
       ],
     ];
