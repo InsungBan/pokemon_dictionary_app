@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pokemon_dictionary_app/view/generation.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -92,6 +93,10 @@ class _HomeState extends State<Home> {
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       actions: [
         // TextButton(onPressed: Get.to(다음경로), child: Text('Exit'))
+        TextButton(
+          onPressed: () => Get.to(() => Generation(), arguments: userIdEditingController.text.trim()), 
+          child: Text('OK'),
+        ),
       ]
     );
   }
