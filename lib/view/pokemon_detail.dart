@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_image.dart';
@@ -13,7 +14,8 @@ class PokemonDetail extends StatefulWidget {
   State<PokemonDetail> createState() => _PokemonDetailState();
 }
 
-class _PokemonDetailState extends State<PokemonDetail> with SingleTickerProviderStateMixin{
+class _PokemonDetailState extends State<PokemonDetail>
+    with SingleTickerProviderStateMixin {
   // Property
   late TabController tabController;
   late int selectedIndex;
@@ -65,7 +67,7 @@ class _PokemonDetailState extends State<PokemonDetail> with SingleTickerProvider
         toolbarHeight: 100,
         bottom: TabBar(
           controller: tabController,
-          tabs: [
+          tabs: const [
             Tab(
               icon: Icon(Icons.image),
             ),

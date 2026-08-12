@@ -8,8 +8,7 @@ import 'package:pokemon_dictionary_app/view/pokemon_detail.dart';
 class PokemonList extends StatefulWidget {
   final List<GenerationList> list;
   final List<List<PokemonClass>> pokemonList;
-
-  const PokemonList({super.key, required this.list, required this.pokemonList,});
+  const PokemonList({super.key, required this.list, required this.pokemonList});
 
   @override
   State<PokemonList> createState() => _PokemonListState();
@@ -28,6 +27,8 @@ class _PokemonListState extends State<PokemonList> {
 
   @override
   Widget build(BuildContext context) {
+    final currentPokemonList = widget.pokemonList[keyIndex];
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -43,8 +44,10 @@ class _PokemonListState extends State<PokemonList> {
         backgroundColor: Colors.red[400],
       ),
       body: ListView.builder(
-        itemCount: widget.pokemonList[keyIndex].length,
+        itemCount: currentPokemonList.length,
         itemBuilder: (context, index) {
+          final selectedPokemon = currentPokemonList[index];
+
           return GestureDetector(
             onTap: () {
               box.write('keyIndex', index);
@@ -60,18 +63,14 @@ class _PokemonListState extends State<PokemonList> {
               child: Row(
                 children: [
                   Image.asset(
-                    widget.pokemonList[keyIndex][index].pokemonImage,
+                    selectedPokemon.pokemonImage,
                     width: 100,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 30,
                   ),
                   Text(
-                    widget.pokemonList[keyIndex][index].pokemonName,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold
-                    ),
+                    selectedPokemon.pokemonName,
                   ),
                 ],
               ),
