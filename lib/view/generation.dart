@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:pokemon_dictionary_app/model/generation_list.dart';
 import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_list.dart';
@@ -14,16 +15,22 @@ class Generation extends StatefulWidget {
 class _GenerationState extends State<Generation> {
   // Property
   late List<GenerationList> generationList;
-  late List<List> pokemonList;
+  late List<List<PokemonClass>> pokemonList;
   late List<PokemonClass> firstGenList;
   late List<PokemonClass> secondGenList;
-  String userId = Get.arguments;
+  late List<PokemonClass> thirdGenList;
+  late List<PokemonClass> fourthGenList;
+  late List<PokemonClass> fiveGenList;
+  late List<PokemonClass> sixGenList;
+  late List<PokemonClass> sevenGenList;
+  late List<PokemonClass> eightGenList;
+  late List<PokemonClass> nineGenList;
+  late String userId;
+  final box = GetStorage();
 
   @override
   void initState() {
     super.initState();
-<<<<<<< Updated upstream
-=======
     userId = box.read('p_userId');
 
     firstGenList = [
@@ -93,70 +100,54 @@ class _GenerationState extends State<Generation> {
       nineGenList,
     ];
 
->>>>>>> Stashed changes
     generationList = [
       GenerationList(
-        generationImage: 'images/gen1.png', 
+        generationImage: 'images/gen1.png',
         generationText: '관동지방',
+        pokeList: pokemonList[0],
       ),
       GenerationList(
-        generationImage: 'images/gen2.png', 
+        generationImage: 'images/gen2.png',
         generationText: '성도지방',
+        pokeList: pokemonList[1],
       ),
       GenerationList(
-        generationImage: 'images/gen3.png', 
+        generationImage: 'images/gen3.png',
         generationText: '호연지방',
+        pokeList: pokemonList[2],
       ),
       GenerationList(
-        generationImage: 'images/gen4.png', 
+        generationImage: 'images/gen4.png',
         generationText: '신오지방',
+        pokeList: pokemonList[3],
       ),
       GenerationList(
-        generationImage: 'images/gen5.png', 
+        generationImage: 'images/gen5.png',
         generationText: '하나지방',
+        pokeList: pokemonList[4],
       ),
       GenerationList(
-        generationImage: 'images/gen6.png', 
+        generationImage: 'images/gen6.png',
         generationText: '칼로스지방',
+        pokeList: pokemonList[5],
       ),
       GenerationList(
-        generationImage: 'images/gen7.png', 
+        generationImage: 'images/gen7.png',
         generationText: '알로라지방',
+        pokeList: pokemonList[6],
       ),
       GenerationList(
-        generationImage: 'images/gen8.png', 
+        generationImage: 'images/gen8.png',
         generationText: '가라르지방',
+        pokeList: pokemonList[7],
       ),
       GenerationList(
-        generationImage: 'images/gen9.png', 
+        generationImage: 'images/gen9.png',
         generationText: '팔데아지방',
+        pokeList: pokemonList[8],
       ),
     ];
 
-<<<<<<< Updated upstream
-    pokemonList=[
-      firstGenList=[
-        PokemonClass(
-          pokemonImage: 'images/fatcat.png', 
-          pokemonName: '귀요미 고양이',
-        ),
-        PokemonClass(
-          pokemonImage: 'images/fatcat2.png', 
-          pokemonName: '귀여운 뚱냥이',
-        ),
-      ],
-      secondGenList=[
-        PokemonClass(
-          pokemonImage: 'images/background.png', 
-          pokemonName: '귀요미 몬스터볼',
-        ),
-        PokemonClass(
-          pokemonImage: 'images/fatcat2.png', 
-          pokemonName: '귀여운 뚱냥이',
-        ),
-      ],
-    ];
-=======
     // pokemonList=[
     //   firstGenList=[
     //     PokemonClass(
@@ -217,20 +208,17 @@ class _GenerationState extends State<Generation> {
     //     ),
     //   ],
     // ];
->>>>>>> Stashed changes
 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           '$userId님의 전국도감',
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
         toolbarHeight: 100,
         centerTitle: true,
@@ -238,42 +226,53 @@ class _GenerationState extends State<Generation> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: GridView.builder(
-          itemCount: generationList.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-          ), 
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Get.to(() => PokemonList(list: generationList, pokemonList: pokemonList,), arguments: index);
-              },
-              child: Card(
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadiusGeometry.circular(20),
-                      child: Image.asset(
-                        generationList[index].generationImage,
-                        width: 115,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      generationList[index].generationText,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ],
-                ),
+        child: Stack(
+          children: [
+            Image.asset(
+              'images/background.png',
+              width: 1000,
+              fit: BoxFit.contain,
+            ),
+            GridView.builder(
+              itemCount: generationList.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
               ),
-            );
-          },
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Get.to(
+                      () => PokemonList(
+                        list: generationList,
+                        pokemonList: pokemonList,
+                      ),
+                      arguments: index,
+                    );
+                  },
+                  child: Card(
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadiusGeometry.circular(20),
+                          child: Image.asset(
+                            generationList[index].generationImage,
+                            width: 115,
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          generationList[index].generationText,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

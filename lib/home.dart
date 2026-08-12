@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:pokemon_dictionary_app/view/generation.dart';
 
 class Home extends StatefulWidget {
@@ -12,17 +13,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late TextEditingController userIdEditingController;
   late TextEditingController passwordEditingController;
+  final box = GetStorage();                       // GetStrage 생성
 
   @override
   void initState() {
     super.initState();
     userIdEditingController = TextEditingController();
     passwordEditingController = TextEditingController();
+    box.write('p_userId', "");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Login Page'),
       ),
@@ -44,6 +48,7 @@ class _HomeState extends State<Home> {
                 decoration: InputDecoration(
                   labelText: 'ID를 입력하시오'
                 ),
+                maxLines: 1,
               ),
             ),
             Padding(
@@ -53,7 +58,8 @@ class _HomeState extends State<Home> {
                 decoration: InputDecoration(
                   labelText: '비밀번호를 입력하시오'
                 ),
-                obscureText: true
+                obscureText: true,
+                maxLines: 1,
               ),
             ),
             SizedBox(height: 30),
@@ -62,7 +68,7 @@ class _HomeState extends State<Home> {
                 if(userIdEditingController.text.trim().isEmpty || passwordEditingController.text.trim().isEmpty) {
                   errorSnackBar();
                 } else {
-                  _showSnackBar();
+                  checkData();
                 }
               },
               child: Text('Login')
@@ -85,20 +91,47 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void _showSnackBar() {
+  void checkSnackBar() {
+    Get.snackbar(
+      '경고',
+      'ID나 비밀번호가 일치하지 않습니다.',
+      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+    );
+  }
+  void checkData() {
+    if(userIdEditingController.text.trim().isEmpty || passwordEditingController.text.trim().isEmpty) {
+      errorSnackBar();
+    } else {
+      if(userIdEditingController.text.trim() == "pikachu" && passwordEditingController.text.trim() == "pikapika") {
+        _showDialog();
+      } else {
+        checkSnackBar();
+      }
+    }
+  }
+
+  void _showDialog() {
     Get.defaultDialog(
       title: '로그인 완료',
       middleText: '환영합니다 ${userIdEditingController.text.trim()}님!',
-      barrierDismissible: true, // false
+      barrierDismissible: false,
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       actions: [
-        // TextButton(onPressed: Get.to(다음경로), child: Text('Exit'))
         TextButton(
-          onPressed: () => Get.to(() => Generation(), arguments: userIdEditingController.text.trim()), 
+          onPressed: () {
+            box.write('p_userId', userIdEditingController.text.trim());
+            userIdEditingController.text = "";
+            passwordEditingController.text = "";
+            Navigator.of(context).pop();
+            Get.to(
+              Generation(),
+              transition: Transition.circularReveal,
+              duration: Duration(seconds: 2)
+            );
+          },
           child: Text('OK'),
         ),
       ]
     );
   }
-
 }
