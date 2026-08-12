@@ -1,27 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pokemon_dictionary_app/model/detail_list.dart';
+import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_image.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_text.dart';
 
 class PokemonDetail extends StatefulWidget {
-  final List<DetailList> list;
-  const PokemonDetail({super.key, required this.list});
+  final List<PokemonClass> list;
+  final int selectedIndex;
+
+  const PokemonDetail({
+    super.key,
+    required this.list,
+    required this.selectedIndex,
+  });
 
   @override
   State<PokemonDetail> createState() => _PokemonDetailState();
 }
 
-class _PokemonDetailState extends State<PokemonDetail> with SingleTickerProviderStateMixin{
+class _PokemonDetailState extends State<PokemonDetail>
+    with SingleTickerProviderStateMixin {
   // Property
   late TabController tabController;
-  late int keyIndex = Get.arguments;
+  late int selectedIndex;
 
   @override
   void initState() {
     super.initState();
+    selectedIndex = widget.selectedIndex;
     tabController = TabController(
-      length: 2, 
+      length: 2,
       vsync: this,
     );
   }
@@ -30,12 +37,37 @@ class _PokemonDetailState extends State<PokemonDetail> with SingleTickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.list[keyIndex].pokeName),
+        title: DropdownButton<int>(
+          value: selectedIndex,
+          underline: const SizedBox(),
+          icon: const Icon(Icons.arrow_drop_down),
+          isDense: false,
+          dropdownColor: Colors.white,
+          alignment: Alignment.center,
+          items: List.generate(widget.list.length, (index) {
+            return DropdownMenuItem<int>(
+              value: index,
+              child: Text(
+                widget.list[index].pokemonName,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+          }),
+          onChanged: (value) {
+            if (value == null) return;
+            setState(() {
+              selectedIndex = value;
+            });
+          },
+        ),
         centerTitle: true,
         toolbarHeight: 100,
         bottom: TabBar(
           controller: tabController,
-          tabs: [
+          tabs: const [
             Tab(
               icon: Icon(Icons.image),
             ),

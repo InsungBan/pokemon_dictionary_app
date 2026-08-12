@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:pokemon_dictionary_app/view/generation.dart';
 
 class Home extends StatefulWidget {
@@ -12,12 +13,14 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late TextEditingController userIdEditingController;
   late TextEditingController passwordEditingController;
+  final box = GetStorage();                       // GetStrage 생성
 
   @override
   void initState() {
     super.initState();
     userIdEditingController = TextEditingController();
     passwordEditingController = TextEditingController();
+    box.write('p_userId', "");
   }
 
   @override
@@ -115,11 +118,15 @@ class _HomeState extends State<Home> {
       actions: [
         TextButton(
           onPressed: () {
-            String userId = userIdEditingController.text.trim();
+            box.write('p_userId', userIdEditingController.text.trim());
             userIdEditingController.text = "";
             passwordEditingController.text = "";
             Navigator.of(context).pop();
-            Get.to(() => Generation(), arguments: userId);
+            Get.to(
+              Generation(),
+              transition: Transition.circularReveal,
+              duration: Duration(seconds: 2)
+            );
           },
           child: Text('OK'),
         ),
