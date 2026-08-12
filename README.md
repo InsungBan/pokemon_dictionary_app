@@ -1,17 +1,23 @@
 # pokemon_dictionary_app
 
-A new Flutter project.
+Flutter Quiz Project
 
-## Getting Started
+## Part
 
-This project is a starting point for a Flutter application.
+### This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+  조민재  :  pokemon detail, image, text page   //   TabBarView, TabBar, dataSet
+  
+  허재영  :  pokemon generation, list page      //   GridView, ListView, model Design
+  
+남궁인성  :  home, register page                //   GetStarage, SnackBar, Dialog
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Slack
+https://app.slack.com/client/T0BPKH4FLF8/C0BPPF1D6NM
+
+# Figma
+https://www.figma.com/design/ELBUVPAMZr7fmMiOQDeUJg/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?node-id=0-1&t=L4hiBJP4dO4GqIkB-1
+
+# GitHub
+https://github.com/InsungBan/pokemon_dictionary_app
