@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:pokemon_dictionary_app/model/detail_list.dart';
 import 'package:pokemon_dictionary_app/model/generation_list.dart';
 import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_detail.dart';
@@ -22,12 +24,18 @@ class _PokemonListState extends State<PokemonList> {
     final currentPokemonList = widget.pokemonList[keyIndex];
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           widget.list[keyIndex].generationText,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold
+          ),
         ),
         centerTitle: true,
         toolbarHeight: 100,
+        backgroundColor: Colors.red[400],
       ),
       body: ListView.builder(
         itemCount: currentPokemonList.length,
