@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:pokemon_dictionary_app/model/detail_list.dart';
+import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 
 class PokemonText extends StatefulWidget {
-  final List<DetailList> list;
-  const PokemonText({super.key, required this.list});
+  final List<PokemonClass> list;
+  final int selectedIndex;
+
+  const PokemonText({
+    super.key,
+    required this.list,
+    required this.selectedIndex,
+  });
 
   @override
   State<PokemonText> createState() => _PokemonTextState();
@@ -16,45 +22,43 @@ class _PokemonTextState extends State<PokemonText> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              color: Colors.white,
-              width: 200,
-              height: 60,
-              child: Center(
-                child: Text(
-                  '도감 번호 : ${widget.list[box.read('keyIndex')].pokeNum}',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),  
+    final index = box.read('keyIndex') ?? widget.selectedIndex;
+    final selected = widget.list[index];
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            color: Colors.white,
+            width: 220,
+            height: 60,
+            child: Center(
+              child: Text(
+                '선택 포켓몬 : ${selected.pokemonName}',
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
-            Container(
-              color: Colors.white,
-              width: 300,
-              height: 100,
-              child: Center(
-                child: Text(
-                  widget.list[box.read('keyIndex')].pokeDetail,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),  
+          ),
+          const SizedBox(height: 40),
+          Container(
+            color: Colors.white,
+            width: 320,
+            height: 80,
+            child: Center(
+              child: Text(
+                '도감 번호 : ${index + 1}',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

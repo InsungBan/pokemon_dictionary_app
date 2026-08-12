@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:pokemon_dictionary_app/model/detail_list.dart';
+import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_image.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_text.dart';
 
 class PokemonDetail extends StatefulWidget {
   final List<PokemonClass> list;
   final int selectedIndex;
-
-  const PokemonDetail({
-    super.key,
-    required this.list,
-    required this.selectedIndex,
-  });
+  const PokemonDetail({super.key, required this.list, required this.selectedIndex});
 
   @override
   State<PokemonDetail> createState() => _PokemonDetailState();
@@ -24,18 +19,17 @@ class _PokemonDetailState extends State<PokemonDetail>
   // Property
   late TabController tabController;
   late int selectedIndex;
-  // late int keyIndex = Get.arguments;
   final box = GetStorage();
 
   @override
   void initState() {
     super.initState();
     selectedIndex = widget.selectedIndex;
+    box.write('keyIndex', selectedIndex);
     tabController = TabController(
       length: 2,
       vsync: this,
     );
-    
   }
 
   @override
@@ -65,14 +59,13 @@ class _PokemonDetailState extends State<PokemonDetail>
             if (value == null) return;
             setState(() {
               selectedIndex = value;
+              box.write('keyIndex', selectedIndex);
             });
           },
         ),
         centerTitle: true,
         toolbarHeight: 100,
-        backgroundColor: Colors.red[400],
         bottom: TabBar(
-          labelColor: Colors.white,
           controller: tabController,
           tabs: const [
             Tab(
@@ -87,8 +80,8 @@ class _PokemonDetailState extends State<PokemonDetail>
       body: TabBarView(
         controller: tabController,
         children: [
-          PokemonImage(list: widget.list),
-          PokemonText(list: widget.list,),
+          PokemonImage(list: widget.list, selectedIndex: selectedIndex),
+          PokemonText(list: widget.list, selectedIndex: selectedIndex),
         ],
       ),
     );

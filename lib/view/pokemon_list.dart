@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:pokemon_dictionary_app/model/detail_list.dart';
 import 'package:pokemon_dictionary_app/model/generation_list.dart';
 import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_detail.dart';
@@ -18,6 +17,13 @@ class PokemonList extends StatefulWidget {
 class _PokemonListState extends State<PokemonList> {
   // Property
   int keyIndex = Get.arguments;
+  final box = GetStorage();
+
+  @override
+  void initState() {
+    super.initState();
+    box.write('keyIndex', 0);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +50,13 @@ class _PokemonListState extends State<PokemonList> {
 
           return GestureDetector(
             onTap: () {
+              box.write('keyIndex', index);
               Get.to(
                 () => PokemonDetail(
-                  list: currentPokemonList,
+                  list: widget.pokemonList[keyIndex],
                   selectedIndex: index,
                 ),
+                arguments: index,
               );
             },
             child: Card(

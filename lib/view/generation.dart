@@ -120,6 +120,68 @@ class _GenerationState extends State<Generation> {
         pokeList: pokemonList[8],
       ),
     ];
+
+    pokemonList=[
+      firstGenList=[
+        PokemonClass(
+          pokemonImage: 'images/f.jpg', 
+          pokemonName: '프리져',
+        ),
+        PokemonClass(
+          pokemonImage: 'images/f.jpg', 
+          pokemonName: '프리져',
+        ),
+      ],
+      secondGenList=[
+        PokemonClass(
+          pokemonImage: 'images/a.jpg', 
+          pokemonName: '엔테이',
+        ),
+      ],
+      thirdGenList=[
+        PokemonClass(
+          pokemonImage: 'images/l.jpg', 
+          pokemonName: '레쿠쟈',
+        ),
+      ],
+      fourthGenList=[
+        PokemonClass(
+          pokemonImage: 'images/pr.jpg', 
+          pokemonName: '펄기아',
+        ),
+      ],
+      fiveGenList=[
+        PokemonClass(
+          pokemonImage: 'images/ls.jpg', 
+          pokemonName: '레시라무',
+        ),
+      ],
+      sixGenList=[
+        PokemonClass(
+          pokemonImage: 'images/ev.jpg', 
+          pokemonName: '이벨타르',
+        ),
+      ],
+      sevenGenList=[
+        PokemonClass(
+          pokemonImage: 'images/sol.jpg', 
+          pokemonName: '솔가레오',
+        ),
+      ],
+      eightGenList=[
+        PokemonClass(
+          pokemonImage: 'images/in.jpg', 
+          pokemonName: '무한다이노',
+        ),
+      ],
+      nineGenList=[
+        PokemonClass(
+          pokemonImage: 'images/cash.jpg', 
+          pokemonName: '타부자고',
+        ),
+      ],
+    ];
+
   }
 
   @override
