@@ -130,6 +130,7 @@ class _GenerationState extends State<Generation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           '$userId님의 전국도감',

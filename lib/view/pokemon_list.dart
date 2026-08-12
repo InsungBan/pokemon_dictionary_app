@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:pokemon_dictionary_app/model/detail_list.dart';
 import 'package:pokemon_dictionary_app/model/generation_list.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_detail.dart';
@@ -17,6 +18,7 @@ class _PokemonListState extends State<PokemonList> {
   // Property
   int keyIndex = Get.arguments;
   late List<DetailList> detailList;
+  final box = GetStorage();
 
   @override
   void initState() {
@@ -77,23 +79,32 @@ class _PokemonListState extends State<PokemonList> {
         pokeDetail: '9세대를 대표하는 전설의 동전',
       ),
     ];
+
+    box.write('keyIndex', '');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           widget.list[keyIndex].generationText,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold
+          ),
         ),
         centerTitle: true,
         toolbarHeight: 100,
+        backgroundColor: Colors.red[400],
       ),
       body: ListView.builder(
         itemCount: widget.pokemonList[keyIndex].length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
+              box.write('keyIndex', keyIndex);
               Get.to(() => PokemonDetail(list: detailList,), arguments: keyIndex);
             },
             child: Card(
@@ -108,6 +119,10 @@ class _PokemonListState extends State<PokemonList> {
                   ),
                   Text(
                     widget.pokemonList[keyIndex][index].pokemonName,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ],
               ),
