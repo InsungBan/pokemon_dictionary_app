@@ -14,7 +14,7 @@ class Generation extends StatefulWidget {
 class _GenerationState extends State<Generation> {
   // Property
   late List<GenerationList> generationList;
-  late List<List> pokemonList;
+  late List<List<PokemonClass>> pokemonList;
   late List<PokemonClass> firstGenList;
   late List<PokemonClass> secondGenList;
   late List<PokemonClass> thirdGenList;
@@ -70,6 +70,10 @@ class _GenerationState extends State<Generation> {
 
     pokemonList=[
       firstGenList=[
+        PokemonClass(
+          pokemonImage: 'images/f.jpg', 
+          pokemonName: '프리져',
+        ),
         PokemonClass(
           pokemonImage: 'images/f.jpg', 
           pokemonName: '프리져',

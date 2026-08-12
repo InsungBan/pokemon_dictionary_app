@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:pokemon_dictionary_app/model/detail_list.dart';
+import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 
 class PokemonImage extends StatefulWidget {
-  final List<DetailList> list;
-  const PokemonImage({super.key, required this.list});
+  final List<PokemonClass> list;
+  final int selectedIndex;
+
+  const PokemonImage({
+    super.key,
+    required this.list,
+    required this.selectedIndex,
+  });
 
   @override
   State<PokemonImage> createState() => _PokemonImageState();
@@ -16,16 +22,16 @@ class _PokemonImageState extends State<PokemonImage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: SizedBox(
-          width: 300,
-          height: 300,
-          child: Image.asset(
-            widget.list[box.read('keyIndex')].pokeImage,
-            fit: BoxFit.contain,
-          ),
+    final index = box.read('keyIndex') ?? widget.selectedIndex;
+    final selected = widget.list[index];
+
+    return Center(
+      child: SizedBox(
+        width: 300,
+        height: 300,
+        child: Image.asset(
+          selected.pokemonImage,
+          fit: BoxFit.contain,
         ),
       ),
     );
