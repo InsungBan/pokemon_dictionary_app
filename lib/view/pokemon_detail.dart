@@ -64,8 +64,10 @@ class _PokemonDetailState extends State<PokemonDetail>
         ),
         centerTitle: true,
         toolbarHeight: 100,
+        backgroundColor: Colors.red[400],
         bottom: TabBar(
           controller: tabController,
+          labelColor: Colors.white,
           tabs: const [
             Tab(
               icon: Icon(Icons.image),

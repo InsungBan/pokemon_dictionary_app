@@ -25,20 +25,23 @@ class _PokemonTextState extends State<PokemonText> {
     final index = box.read('keyIndex');// ?? widget.selectedIndex;   // 로컬 저장소에서 선택된 포켓몬의 인덱스를 읽어오거나, 위젯의 selectedIndex를 사용
     final selected = widget.list[index];    // 선택된 포켓몬 객체를 가져옴
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            color: Colors.white,
-            width: 220,
-            height: 60,
-            child: Center(
-              child: Text(
-                '선택 포켓몬 : ${selected.pokemonName}',
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              color: Colors.white,
+              width: 220,
+              height: 60,
+              child: Center(
+                child: Text(
+                  '선택 포켓몬 : ${selected.pokemonName}',
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -57,8 +60,8 @@ class _PokemonTextState extends State<PokemonText> {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

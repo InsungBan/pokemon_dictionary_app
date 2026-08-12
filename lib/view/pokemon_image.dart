@@ -25,13 +25,16 @@ class _PokemonImageState extends State<PokemonImage> {
     final index = box.read('keyIndex');// ?? widget.selectedIndex;  // 로컬 저장소에서 선택된 포켓몬의 인덱스를 읽어오거나, 위젯의 selectedIndex를 사용
     final selected = widget.list[index];                         // 선택된 포켓몬 객체를 가져옴
 
-    return Center(
-      child: SizedBox(
-        width: 300,
-        height: 300,
-        child: Image.asset(
-          selected.pokemonImage,
-          fit: BoxFit.contain,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SizedBox(
+          width: 300,
+          height: 300,
+          child: Image.asset(
+            selected.pokemonImage,
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     );
