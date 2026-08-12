@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pokemon_dictionary_app/view/generation.dart';
 
+import 'register_page.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -11,9 +13,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  late TextEditingController userIdEditingController;
-  late TextEditingController passwordEditingController;
-  final box = GetStorage();                       // GetStrage 생성
+  late TextEditingController userIdEditingController;   // 사용자 ID 입력 컨트롤러
+  late TextEditingController passwordEditingController; // 비밀번호 입력 컨트롤러
+  final box = GetStorage();                             // GetStrage 생성
+  List<Map<String, String>> userIdList = [
+    {'userId': 'pikachu', 'password': 'pikapika'},
+    {'userId': 'insung', 'password': 'namgung'},
+  ];                                                    // 사용자 ID 리스트
 
   @override
   void initState() {
@@ -73,9 +79,17 @@ class _HomeState extends State<Home> {
               },
               child: Text('Login')
             ),
-            SizedBox(
-              height: 100,
-            )
+            SizedBox(height: 30),
+            TextButton(
+              onPressed: () async {
+                final result = await Get.to(() => RegisterPage(userIdList: userIdList));
+                if (result != null) {
+                  userIdList.add(result);
+                  setState(() {});
+                }
+              },
+              child: Text('Go to Register')
+            ),
           ],
         ),
       ),
@@ -83,6 +97,7 @@ class _HomeState extends State<Home> {
   }
 
   // ----- Function -----
+  // ID와 비밀번호 입력 여부 확인 후 경고 메시지 출력
   void errorSnackBar() {
     Get.snackbar(
       '경고',
@@ -91,6 +106,7 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // ID와 비밀번호 일치 여부 확인 후 경고 메시지 출력
   void checkSnackBar() {
     Get.snackbar(
       '경고',
@@ -98,18 +114,27 @@ class _HomeState extends State<Home> {
       backgroundColor: Theme.of(context).colorScheme.primaryContainer,
     );
   }
+
+  // ID 중복 체크 및 비밀번호 확인 체크 후 회원가입 처리
   void checkData() {
     if(userIdEditingController.text.trim().isEmpty || passwordEditingController.text.trim().isEmpty) {
       errorSnackBar();
     } else {
-      if(userIdEditingController.text.trim() == "pikachu" && passwordEditingController.text.trim() == "pikapika") {
-        _showDialog();
-      } else {
+      bool userFound = false;
+      for (var user in userIdList) {
+        if (userIdEditingController.text.trim() == user['userId'] && passwordEditingController.text.trim() == user['password']) {
+          userFound = true;
+          _showDialog();
+          break;
+        }
+      }
+      if (!userFound) {
         checkSnackBar();
       }
     }
   }
 
+  // 로그인 성공 시 다이얼로그 표시
   void _showDialog() {
     Get.defaultDialog(
       title: '로그인 완료',

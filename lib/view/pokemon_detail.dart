@@ -16,9 +16,9 @@ class PokemonDetail extends StatefulWidget {
 class _PokemonDetailState extends State<PokemonDetail>
     with SingleTickerProviderStateMixin {
   // Property
-  late TabController tabController;
-  late int selectedIndex;
-  final box = GetStorage();
+  late TabController tabController;   // TabController를 사용하여 탭 전환을 관리
+  late int selectedIndex;             // 선택된 포켓몬의 인덱스를 저장
+  final box = GetStorage();           // GetStorage 인스턴스를 생성하여 로컬 저장소에 접근
 
   @override
   void initState() {

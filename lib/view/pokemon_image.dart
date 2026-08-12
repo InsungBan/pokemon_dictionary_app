@@ -18,12 +18,12 @@ class PokemonImage extends StatefulWidget {
 
 class _PokemonImageState extends State<PokemonImage> {
   // Property
-  final box = GetStorage();
+  final box = GetStorage();   // GetStorage 인스턴스를 생성하여 로컬 저장소에 접근
 
   @override
   Widget build(BuildContext context) {
-    final index = box.read('keyIndex') ?? widget.selectedIndex;
-    final selected = widget.list[index];
+    final index = box.read('keyIndex');// ?? widget.selectedIndex;  // 로컬 저장소에서 선택된 포켓몬의 인덱스를 읽어오거나, 위젯의 selectedIndex를 사용
+    final selected = widget.list[index];                         // 선택된 포켓몬 객체를 가져옴
 
     return Scaffold(
       backgroundColor: Colors.white,
