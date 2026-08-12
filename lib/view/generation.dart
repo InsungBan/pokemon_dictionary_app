@@ -35,57 +35,57 @@ class _GenerationState extends State<Generation> {
 
     firstGenList = [
       PokemonClass(pokemonImage: 'images/f.jpg', pokemonName: '프리져', pokeNum: '144'),
-      PokemonClass(pokemonImage: 'images/gen1_1.png', pokemonName: '이상해씨', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen1_2.png', pokemonName: '파이리', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen1_3.png', pokemonName: '꼬부기', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/gen1_1.png', pokemonName: '이상해씨', pokeNum: '001'),
+      PokemonClass(pokemonImage: 'images/gen1_2.png', pokemonName: '파이리', pokeNum: '004'),
+      PokemonClass(pokemonImage: 'images/gen1_3.png', pokemonName: '꼬부기', pokeNum: '007'),
     ];
     secondGenList = [
-      PokemonClass(pokemonImage: 'images/a.jpg', pokemonName: '엔테이', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen2_1.png', pokemonName: '치코리타', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen2_2.png', pokemonName: '브케인', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen2_3.png', pokemonName: '리아코', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/a.jpg', pokemonName: '엔테이', pokeNum: '244'),
+      PokemonClass(pokemonImage: 'images/gen2_1.png', pokemonName: '치코리타', pokeNum: '152'),
+      PokemonClass(pokemonImage: 'images/gen2_2.png', pokemonName: '브케인', pokeNum: '155'),
+      PokemonClass(pokemonImage: 'images/gen2_3.png', pokemonName: '리아코', pokeNum: '158'),
     ];
     thirdGenList = [
-      PokemonClass(pokemonImage: 'images/l.jpg', pokemonName: '레쿠쟈', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen3_1.png', pokemonName: '나무지기', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen3_2.png', pokemonName: '아차모', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen3_3.png', pokemonName: '물짱이', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/l.jpg', pokemonName: '레쿠쟈', pokeNum: '384'),
+      PokemonClass(pokemonImage: 'images/gen3_1.png', pokemonName: '나무지기', pokeNum: '252'),
+      PokemonClass(pokemonImage: 'images/gen3_2.png', pokemonName: '아차모', pokeNum: '255'),
+      PokemonClass(pokemonImage: 'images/gen3_3.png', pokemonName: '물짱이', pokeNum: '258'),
     ];
     fourthGenList = [
-      PokemonClass(pokemonImage: 'images/pr.jpg', pokemonName: '펄기아', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen4_1.png', pokemonName: '모부기', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen4_2.png', pokemonName: '불꽃숭이', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen4_3.png', pokemonName: '팽도리', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/pr.jpg', pokemonName: '펄기아', pokeNum: '484'),
+      PokemonClass(pokemonImage: 'images/gen4_1.png', pokemonName: '모부기', pokeNum: '387'),
+      PokemonClass(pokemonImage: 'images/gen4_2.png', pokemonName: '불꽃숭이', pokeNum: '390'),
+      PokemonClass(pokemonImage: 'images/gen4_3.png', pokemonName: '팽도리', pokeNum: '393'),
     ];
     fiveGenList = [
-      PokemonClass(pokemonImage: 'images/ls.jpg', pokemonName: '레시라무', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen5_1.png', pokemonName: '주리비얀', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen5_2.png', pokemonName: '뚜꾸리', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen5_3.png', pokemonName: '수댕이', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/ls.jpg', pokemonName: '레시라무', pokeNum: '643'),
+      PokemonClass(pokemonImage: 'images/gen5_1.png', pokemonName: '주리비얀', pokeNum: '495'),
+      PokemonClass(pokemonImage: 'images/gen5_2.png', pokemonName: '뚜꾸리', pokeNum: '498'),
+      PokemonClass(pokemonImage: 'images/gen5_3.png', pokemonName: '수댕이', pokeNum: '501'),
     ];
     sixGenList = [
-      PokemonClass(pokemonImage: 'images/ev.jpg', pokemonName: '이벨타르', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen6_1.png', pokemonName: '도치마론', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen6_2.png', pokemonName: '푸호꼬', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen6_3.png', pokemonName: '개구마르', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/ev.jpg', pokemonName: '이벨타르', pokeNum: '717'),
+      PokemonClass(pokemonImage: 'images/gen6_1.png', pokemonName: '도치마론', pokeNum: '650'),
+      PokemonClass(pokemonImage: 'images/gen6_2.png', pokemonName: '푸호꼬', pokeNum: '653'),
+      PokemonClass(pokemonImage: 'images/gen6_3.png', pokemonName: '개구마르', pokeNum: '656'),
     ];
     sevenGenList = [
-      PokemonClass(pokemonImage: 'images/sol.jpg', pokemonName: '솔가레오', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen7_1.png', pokemonName: '나몰빼미', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen7_2.png', pokemonName: '냐오불', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen7_3.png', pokemonName: '누리공', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/sol.jpg', pokemonName: '솔가레오', pokeNum: '791'),
+      PokemonClass(pokemonImage: 'images/gen7_1.png', pokemonName: '나몰빼미', pokeNum: '722'),
+      PokemonClass(pokemonImage: 'images/gen7_2.png', pokemonName: '냐오불', pokeNum: '725'),
+      PokemonClass(pokemonImage: 'images/gen7_3.png', pokemonName: '누리공', pokeNum: '728'),
     ];
     eightGenList = [
-      PokemonClass(pokemonImage: 'images/in.jpg', pokemonName: '무한다이노', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen8_1.png', pokemonName: '나몰빼미', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen8_2.png', pokemonName: '냐오불', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen8_3.png', pokemonName: '누리공', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/in.jpg', pokemonName: '무한다이노', pokeNum: '890'),
+      PokemonClass(pokemonImage: 'images/gen8_1.png', pokemonName: '흥나숭', pokeNum: '810'),
+      PokemonClass(pokemonImage: 'images/gen8_2.png', pokemonName: '염버니', pokeNum: '813'),
+      PokemonClass(pokemonImage: 'images/gen8_3.png', pokemonName: '울머기', pokeNum: '816'),
     ];
     nineGenList = [
-      PokemonClass(pokemonImage: 'images/cash.jpg', pokemonName: '타부자고', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen9_1.png', pokemonName: '나오하', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen9_2.png', pokemonName: '뜨아거', pokeNum: ''),
-      PokemonClass(pokemonImage: 'images/gen9_3.png', pokemonName: '꾸왁스', pokeNum: ''),
+      PokemonClass(pokemonImage: 'images/cash.jpg', pokemonName: '타부자고', pokeNum: '1000'),
+      PokemonClass(pokemonImage: 'images/gen9_1.png', pokemonName: '나오하', pokeNum: '906'),
+      PokemonClass(pokemonImage: 'images/gen9_2.png', pokemonName: '뜨아거', pokeNum: '909'),
+      PokemonClass(pokemonImage: 'images/gen9_3.png', pokemonName: '꾸왁스', pokeNum: '912'),
     ];
 
     pokemonList = [
