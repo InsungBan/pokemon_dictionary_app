@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:pokemon_dictionary_app/model/pokemon_class.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_image.dart';
 import 'package:pokemon_dictionary_app/view/pokemon_text.dart';
 
@@ -65,8 +64,10 @@ class _PokemonDetailState extends State<PokemonDetail>
         ),
         centerTitle: true,
         toolbarHeight: 100,
+        backgroundColor: Colors.red[400],
         bottom: TabBar(
           controller: tabController,
+          labelColor: Colors.white,
           tabs: const [
             Tab(
               icon: Icon(Icons.image),

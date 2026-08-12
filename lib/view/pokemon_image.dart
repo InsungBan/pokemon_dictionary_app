@@ -25,13 +25,16 @@ class _PokemonImageState extends State<PokemonImage> {
     final index = box.read('keyIndex') ?? widget.selectedIndex;
     final selected = widget.list[index];
 
-    return Center(
-      child: SizedBox(
-        width: 300,
-        height: 300,
-        child: Image.asset(
-          selected.pokemonImage,
-          fit: BoxFit.contain,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SizedBox(
+          width: 300,
+          height: 300,
+          child: Image.asset(
+            selected.pokemonImage,
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     );
