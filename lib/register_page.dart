@@ -111,6 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
         title: '성공',
         middleText: '회원가입이 완료되었습니다.',
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        barrierDismissible: false,
         actions: [
           TextButton(
             onPressed: () {

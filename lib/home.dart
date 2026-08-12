@@ -55,6 +55,7 @@ class _HomeState extends State<Home> {
                   labelText: 'ID를 입력하시오'
                 ),
                 maxLines: 1,
+                maxLength: 20,
               ),
             ),
             Padding(
@@ -66,6 +67,7 @@ class _HomeState extends State<Home> {
                 ),
                 obscureText: true,
                 maxLines: 1,
+                maxLength: 20,
               ),
             ),
             SizedBox(height: 30),

@@ -47,7 +47,6 @@ class _PokemonListState extends State<PokemonList> {
         itemCount: currentPokemonList.length,
         itemBuilder: (context, index) {
           final selectedPokemon = currentPokemonList[index];  // 현재 세대의 포켓몬 리스트에서 선택된 포켓몬 객체를 가져옴
-
           return GestureDetector(
             onTap: () {
               box.write('keyIndex', index);
