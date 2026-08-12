@@ -16,8 +16,8 @@ class PokemonList extends StatefulWidget {
 
 class _PokemonListState extends State<PokemonList> {
   // Property
-  int keyIndex = Get.arguments;
-  final box = GetStorage();
+  int keyIndex = Get.arguments;   // 현재 세대의 인덱스를 저장
+  final box = GetStorage();       // GetStorage 인스턴스를 생성하여 로컬 저장소에 접근
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _PokemonListState extends State<PokemonList> {
 
   @override
   Widget build(BuildContext context) {
-    final currentPokemonList = widget.pokemonList[keyIndex];
+    final currentPokemonList = widget.pokemonList[keyIndex];    // 현재 세대의 포켓몬 리스트를 가져옴
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -46,7 +46,7 @@ class _PokemonListState extends State<PokemonList> {
       body: ListView.builder(
         itemCount: currentPokemonList.length,
         itemBuilder: (context, index) {
-          final selectedPokemon = currentPokemonList[index];
+          final selectedPokemon = currentPokemonList[index];  // 현재 세대의 포켓몬 리스트에서 선택된 포켓몬 객체를 가져옴
 
           return GestureDetector(
             onTap: () {
