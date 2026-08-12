@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   List<Map<String, String>> userIdList = [
     {'userId': 'pikachu', 'password': 'pikapika'},
     {'userId': 'insung', 'password': 'namgung'},
-  ];                                                    // 사용자 ID 리스트
+  ];                                                    // 사용자 ID 리스트 (보안처리 필요)
 
   @override
   void initState() {
