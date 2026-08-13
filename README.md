@@ -24,3 +24,6 @@ https://www.figma.com/design/ELBUVPAMZr7fmMiOQDeUJg/%EC%A0%9C%EB%AA%A9-%EC%97%86
 
 ## GitHub
 https://github.com/InsungBan/pokemon_dictionary_app
+
+## PPT
+https://www.canva.com/design/DAHSDoKDqA0/dg6W9n899qy-J5CINBaBiQ/edit
