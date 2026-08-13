@@ -28,5 +28,5 @@ https://github.com/InsungBan/pokemon_dictionary_app
 ## PPT
 https://www.canva.com/design/DAHSDoKDqA0/dg6W9n899qy-J5CINBaBiQ/edit
 
-##UCC
+## UCC
 https://www.youtube.com/watch?v=NbrfrKJeDXk
